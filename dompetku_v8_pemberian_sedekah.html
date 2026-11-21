@@ -1,0 +1,845 @@
+<!doctype html>
+<html lang="id"><head>
+<link rel="manifest" href="./manifest.json">
+<meta name="theme-color" content="#0b8f6a">
+<link rel="icon" type="image/png" sizes="64x64" href="./favicon-64.png">
+<link rel="apple-touch-icon" href="./apple-touch-icon.png"><script>window["__codeletBootstrap__"]=JSON.parse('{"A":"A","B":"20261005-04-df3a3b1","C":{"Abril Fatface":"YACgEZbkUVE,0","Alfa Slab One":"YACgEYS9sJU,0","Anton":"YACgEcYqQ-A,0","Archivo":"YACgEZulLoA,0","Arial Narrow":"YAGyDvJ_4Ts,0","Arial Rounded MT Bold":"YAFcfoaHu-s,0","Arial":"YAGyDvJ_4Ts,0","Avenir Next":"YAFcfmNq6UY,0","Baloo 2":"YADK30bC6HQ,0","Bebas Neue":"YACgESME5ew,0","Bricolage Grotesque":"YAFyMcdwzpc,0","Broken Glyph":"YADZ-exUkv0,0","Canva Sans":"YAFdJjTk5UU,1","Caveat":"YALBs2ploWQ,0","Comic Sans MS":"YAFcfvtOAUY,1","Cormorant Garamond":"YAFdJhX-538,0","Courier New":"YAGzXiGs0_8,0","Courier Prime":"YAD1aFjegN8,0","DM Sans":"YAD1aU3sLnI,0","DM Serif Display":"YAD1aYG82rc,0","Forum":"YACgEcnnqB4,0","Fraunces":"YAFdJpU7Kkk,0","Georgia":"YAGzXkO0pEM,0","Ghost Mono":"YAHQutsX00Q,0","Hanken Grotesk":"YAFcfhwp99E,0","Helvetica Neue":"YAFcf6CtJfI,0","Helvetica":"YAFcf6CtJfI,0","IBM Plex Mono":"YAFdJkmvhGI,0","Impact":"YAFcfnjI7Vk,0","Instrument Serif":"YAHFeOnZNEk,0","Inter":"YAFdJvSyp_k,3","Iowan Old Style":"YAGNIFa8j9o,0","Jacques Francois":"YADK3zbC6RM,0","JetBrains Mono":"YAFdJksXcAk,0","Josefin Sans":"YAFdJjvw9Ps,0","Lato":"YAFdJuFCnaw,0","Libre Baskerville":"YACgEUFdPdA,0","Lobster":"YAD8SnSjSFI,0","Lora":"YACgEXvxf8Q,0","Merriweather":"YACgEXvHxxs,0","Montserrat":"YAFdtQi73Xs,0","Nunito":"YAFdJoNRMmU,1","Oleo Script":"YACgEQQ14jI,0","Oswald":"YACgEQY10lw,0","Pacifico":"YADLjORQ1u4,0","Phantom Sans":"YAFdJvgJ5TU,0","Playfair Display":"YAFdJhem5V8,1","Plus Jakarta Sans":"YAGvf3_u0_Q,0","Poppins":"YAFdJjbTu24,1","Press Start 2P":"YAFyGr-8pmQ,0","Quicksand":"YAFdJpYtCxE,1","Raleway":"YAFdJhmxbVQ,1","Roboto Slab":"YAFdJswIKAg,0","Rockwell":"YAFcfyVZnN0,0","Rye":"YACgEdQP21k,0","Segoe UI":"YAHNdRD1Klw,0","Source Sans 3":"YAG4lO1Mj10,0","Source Serif 4":"YACgEfdj394,0","Space Grotesk":"YADZ-dYEmhg,0","Space Mono":"YADW1-vpsoc,0","Times New Roman":"YAGzXW3gftg,0","Times":"YAGzXW3gftg,0","Trebuchet MS":"YAFcfrglpVA,0","UV Display":"YAEdVfSSpYo,0","UV Sans":"YAFdJvgJ5TU,0","Ubuntu":"YACgERDU--Q,0","Verdana":"YAGzXTctYtQ,0","Work Sans":"YAGXhLOKv44,0","Yellowtail":"YACgEYG4kG4,0","ui-monospace":"YAD1aFjegN8,0","ui-sans-serif":"YACkoD1yZN0,0"}}');</script><script src="/_sdk/6542d56fbfe7a3eb.telemetry_sdk.js" integrity="sha512-ECdM0nK7EkwDuOqho2qxgyRQXyBHk9hZqRKMBr+Xsu6zjeHlt+qkO2N2YRiHN7Kg4e1fEHDhjIp4bGJYVypv1g=="></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pencatat Keuangan Pribadi</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #15322b;
+      --muted: #64748b;
+      --canvas: #f5f8f7;
+      --surface: #ffffff;
+      --line: #dce8e3;
+      --brand: #087f5b;
+      --brand-dark: #056a4a;
+      --brand-soft: #e5f6ef;
+      --danger: #c2413a;
+      --danger-soft: #fff0ee;
+      --warning: #b45309;
+      --warning-soft: #fff7e8;
+      --shadow: 0 10px 28px rgba(23, 68, 53, .08);
+    }
+    * { box-sizing: border-box; }
+    html { background: var(--canvas); }
+    body { margin: 0; width: 100%; background: var(--canvas); color: var(--ink); font-family: "DM Sans", sans-serif; }
+    button, input, select, textarea { font: inherit; }
+    button { cursor: pointer; }
+    button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible { outline: 3px solid rgba(8,127,91,.32); outline-offset: 2px; }
+    .app-shell { width: 100%; min-height: calc(100 * min(var(--vh, 1vh), 1vh)); }
+    .surface { background: var(--surface); border: 1px solid var(--line); box-shadow: var(--shadow); }
+    .muted { color: var(--muted); }
+    .view { display: none; animation: enter .26s ease both; }
+    .view.active { display: block; }
+    @keyframes enter { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+    .nav-item.active { color: var(--brand); background: var(--brand-soft); }
+    .nav-icon { width: 21px; height: 21px; stroke-width: 2; fill: none; stroke: currentColor; }
+    .card { border-radius: 18px; }
+    .metric-card { min-height: 88px; min-width: 0; }
+    .home-fab.home-visible { display:flex !important; }
+
+    /* Statistik tetap satu kolom di HP; memilih periode tidak mengubah layout. */
+    .stats-filter-mobile { display:grid !important; grid-template-columns:minmax(0,1fr) !important; gap:12px !important; width:100% !important; }
+    .stats-filter-mobile > div { min-width:0 !important; width:100% !important; }
+    .stats-date-field { width:100% !important; }
+    .mobile-bottom-spacer { height: 2rem; }
+    @media (max-width: 899px) { .mobile-bottom-spacer { height: 5rem; } }
+    .metric-value { white-space: nowrap; overflow: hidden; text-overflow: clip; font-size: clamp(19px, 5.4vw, 24px); letter-spacing: -0.025em; }
+    .payment-option { border-color: var(--line); background: var(--surface); color: var(--ink); transition: .15s ease; }
+    .payment-menu { max-height: 310px; overflow-y: auto; }
+    .payment-menu-option { display:flex; width:100%; align-items:center; justify-content:space-between; border:0; border-radius:12px; padding:11px 12px; text-align:left; font-weight:600; color:var(--ink); background:transparent; }
+    .payment-menu-option:hover, .payment-menu-option.selected { background:var(--brand-soft); color:var(--brand); }
+    .payment-menu-group { margin:10px 8px 4px; font-size:11px; font-weight:800; text-transform:uppercase; letter-spacing:.06em; color:var(--muted); }
+    .payment-option.selected { border-color: var(--brand); background: var(--brand-soft); color: var(--brand); box-shadow: 0 0 0 2px rgba(8,127,91,.10); }
+    .custom-select-native { position:absolute !important; width:1px !important; height:1px !important; opacity:0 !important; pointer-events:none !important; }
+    .custom-select-button { display:flex; width:100%; align-items:center; justify-content:space-between; gap:12px; border:1px solid var(--line); border-radius:12px; padding:12px 14px; text-align:left; font-weight:600; color:var(--ink); background:var(--surface); min-height:50px; }
+    .custom-select-button:focus-visible { outline:3px solid rgba(8,127,91,.32); outline-offset:2px; }
+    .custom-select-menu { position:absolute; left:0; right:0; top:calc(100% + 6px); z-index:90; max-height:280px; overflow-y:auto; padding:6px; border:1px solid var(--line); border-radius:16px; background:var(--surface); box-shadow:0 14px 30px rgba(11,31,25,.16); }
+    .custom-select-option { display:flex; width:100%; align-items:center; justify-content:space-between; gap:10px; border:0; border-radius:10px; padding:11px 12px; text-align:left; font-weight:600; color:var(--ink); background:transparent; }
+    .custom-select-option:hover, .custom-select-option.selected { background:var(--brand-soft); color:var(--brand); }
+    .custom-select-option .check { font-size:14px; font-weight:800; }
+    @media (min-width: 640px) { .metric-value { font-size: 20px; } }
+    .chart-bar { min-width: 22px; border-radius: 7px 7px 2px 2px; background: linear-gradient(180deg, #27b787, var(--brand)); transition: height .35s ease; }
+    /* Statistik: perubahan periode tidak boleh mengubah lebar/layout halaman di HP */
+    .stats-filter-mobile { width: 100%; min-width: 0; box-sizing: border-box; }
+    .stats-chart-grid > article { min-width: 0; width: 100%; box-sizing: border-box; overflow: hidden; }
+    #statsChart { width: 100%; max-width: 100%; min-width: 0; box-sizing: border-box; overflow-x: auto; overflow-y: hidden; }
+    #statsChart > div { min-width: 52px !important; width: 52px !important; flex: 0 0 52px !important; }
+    @media (max-width: 899px) {
+      .stats-chart-grid { display: grid !important; grid-template-columns: minmax(0, 1fr) !important; width: 100% !important; min-width: 0 !important; }
+      .stats-chart-grid > article { min-width: 0 !important; max-width: 100% !important; }
+      #statsChart { overflow-x: auto !important; overflow-y: hidden !important; }
+    }
+    .category-dot { width: 10px; height: 10px; border-radius: 99px; flex: 0 0 auto; }
+    .modal-backdrop { background: rgba(11, 31, 25, .58); backdrop-filter: blur(3px); }
+    .modal-panel { max-height: calc(92 * min(var(--vh, 1vh), 1vh)); }
+    .toast { transform: translateY(120px); opacity: 0; transition: .24s ease; }
+    .toast.show { transform: translateY(0); opacity: 1; }
+    .progress-fill { transition: width .35s ease; }
+    .transaction-row:hover { border-color: rgba(8,127,91,.45); }
+    .transaction-amount { white-space: nowrap; flex-shrink: 0; }
+    .transaction-actions { display:flex; flex-shrink:0; flex-direction:column; gap:4px; }
+    .transaction-action-btn { width:40px; height:34px; padding:0; display:flex; align-items:center; justify-content:center; border-radius:10px; border:0; }
+    .transaction-action-btn svg { width:17px; height:17px; stroke-width:2.2; }
+    @media (max-width: 899px) {
+      .transaction-row { align-items:center; gap:8px; padding:9px !important; min-height:92px; }
+      .transaction-row > .transaction-icon { width:44px; height:44px; border-radius:12px; }
+      .transaction-actions { width:40px; gap:4px; }
+      .transaction-action-btn { width:40px; height:32px; }
+    }
+    @media (max-width: 899px) { .content-frame { padding-bottom: 5.5rem !important; } }
+    .desktop-nav { display: none; }
+    @media (min-width: 900px) {
+      .desktop-nav { display: flex; }
+      .mobile-nav { display: none; }
+      .content-frame { padding-bottom: 2rem; }
+      .app-grid { display: grid; grid-template-columns: 238px minmax(0, 1fr); max-width: 1420px; margin: 0 auto; }
+      .side-nav { position: sticky; top: 0; height: calc(100 * min(var(--vh, 1vh), 1vh)); }
+    }
+  .transaction-row{min-height:76px;} .transaction-row:focus-visible{outline:3px solid rgba(8,127,91,.25);outline-offset:2px;}
+
+    /* Mobile: pisahkan 3 angka budget agar tidak saling menimpa */
+    .budget-summary { display:grid; grid-template-columns:1fr; gap:10px; }
+    .budget-stat { min-width:0; padding:10px 12px; border-radius:14px; background:var(--brand-soft); }
+    .budget-stat-used { background:var(--danger-soft); }
+    @media (min-width:640px) { .budget-summary { grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; } .budget-stat { padding:0; background:transparent; } .budget-stat-used { background:transparent; } }
+</style>
+  <script src="https://cdn.tailwindcss.com/3.4.17" type="text/javascript"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.577.0/dist/umd/lucide.min.js" type="text/javascript"></script>
+  <script src="/_sdk/6c2ecc939521f244.data_sdk.js" type="text/javascript" integrity="sha512-gRx8s+XsZDN6mSIQu2sivLZysbV0WHhb5kXNUWlgVb5lCMU1foJYukyMEDPv8Tnoocb8iwqB4XdRrWc7oEGzIQ=="></script>
+  <script src="/_sdk/cfda8dc081c3323c.editing_sdk.js" type="text/javascript" integrity="sha512-dNfMrWh4XAlHjsc8SoR2pkFBBcWdfifAFLC3yNCmnfoD4mTTxOtHMNSuGJMI2GUW0TArNoXmc/EAqYu/Ip9Yiw=="></script>
+  <script src="/_sdk/ab4336f91e694f96.resizing_sdk.js" type="text/javascript" integrity="sha512-cxmeUrBrNlwwLr+tEu/iwM5F3boeK4qDMoH3QjUPqJptkO5NkaDVhQvyIHIn+3EflI5/uubWzkSA78B1tCswgA=="></script>
+ </head>
+ <body data-template-id="__page-root" style="background: rgb(245, 248, 247);">
+  <div class="app-shell">
+   <div class="app-grid">
+    <aside class="side-nav desktop-nav flex-col border-r p-5" style="border-color:var(--line);background:var(--surface)">
+     <div class="mb-8">
+      <div class="flex items-center gap-3">
+       <div class="flex h-10 w-10 items-center justify-center rounded-xl text-white" style="background:var(--brand)">
+        <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true">
+         <path d="M4 19V5M4 19h16M8 16v-5M12 16V8M16 16v-8"></path>
+        </svg>
+       </div>
+       <div>
+        <p class="m-0 text-sm font-bold" style="color:var(--ink)">Dompetku</p>
+        <p class="m-0 text-xs muted">Keuangan pribadi</p>
+       </div>
+      </div>
+     </div>
+     <nav aria-label="Navigasi utama desktop" class="space-y-2"><button class="nav-item active flex w-full items-center gap-3 rounded-xl px-3 py-3 text-left font-semibold" data-view="home">
+       <svg class="nav-icon" viewBox="0 0 24 24">
+        <path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1Z"></path><path d="M9 21v-6h6v6"></path>
+       </svg>Beranda</button> <button class="nav-item flex w-full items-center gap-3 rounded-xl px-3 py-3 text-left font-semibold" data-view="transactions">
+       <svg class="nav-icon" viewBox="0 0 24 24">
+        <path d="M4 5h16M4 12h16M4 19h16"></path>
+       </svg>Transaksi</button> <button class="nav-item flex w-full items-center gap-3 rounded-xl px-3 py-3 text-left font-semibold" data-view="statistics">
+       <svg class="nav-icon" viewBox="0 0 24 24">
+        <path d="M4 20V10M10 20V4M16 20v-7M22 20H2"></path>
+       </svg>Statistik</button> <button class="nav-item flex w-full items-center gap-3 rounded-xl px-3 py-3 text-left font-semibold" data-view="budget">
+       <svg class="nav-icon" viewBox="0 0 24 24">
+        <rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M16 12h2"></path>
+       </svg>Budget</button> <button class="nav-item flex w-full items-center gap-3 rounded-xl px-3 py-3 text-left font-semibold" data-view="accounts">
+        <svg class="nav-icon" viewBox="0 0 24 24">
+         <rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M7 9h10M7 13h6"></path>
+        </svg>Saldo</button> <button class="nav-item flex w-full items-center gap-3 rounded-xl px-3 py-3 text-left font-semibold" data-view="settings">
+       <svg class="nav-icon" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.7 1.7 0 0 0 .34 1.88l.06.06-2.4 2.4-.06-.06a1.7 1.7 0 0 0-1.88-.34 1.7 1.7 0 0 0-1.04 1.56v.1h-3.4v-.1A1.7 1.7 0 0 0 10 18.94a1.7 1.7 0 0 0-1.88.34l-.06.06-2.4-2.4.06-.06A1.7 1.7 0 0 0 6.06 15 1.7 1.7 0 0 0 4.5 14H4.4v-3.4h.1A1.7 1.7 0 0 0 6.06 9a1.7 1.7 0 0 0-.34-1.88l-.06-.06 2.4-2.4.06.06A1.7 1.7 0 0 0 10 5.06 1.7 1.7 0 0 0 11.04 3.5v-.1h3.4v.1A1.7 1.7 0 0 0 15.5 5.06a1.7 1.7 0 0 0 1.88-.34l.06-.06 2.4 2.4-.06.06A1.7 1.7 0 0 0 19.44 9a1.7 1.7 0 0 0 1.56 1.04h.1v3.4H21A1.7 1.7 0 0 0 19.4 15Z"></path>
+       </svg>Pengaturan</button>
+      <button class="nav-item flex w-full items-center gap-3 rounded-xl px-3 py-3 text-left font-semibold" data-view="debts"><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h18M5 7V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v2M5 7v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7M8 12h8M8 16h5"/><path d="m15 10 2 2-2 2"/></svg>Utang & Piutang</button>
+      <button class="nav-item flex w-full items-center gap-3 rounded-xl px-3 py-3 text-left font-semibold" data-view="future"><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M16 2v4M8 2v4M3 9h18M8 13h3M8 17h6"/><path d="m16 14 2 2 3-3"/></svg>Pengeluaran Mendatang</button>
+     </nav><button id="desktopAdd" data-template-id="add-transaction-button" type="button" class="canva-button mt-auto flex items-center justify-center gap-2 rounded-xl px-4 py-3 font-bold text-white" style="background: rgb(8, 127, 91); color: rgb(255, 255, 255); font-weight: 700; font-style: normal; font-size: 16px;">Tambah Transaksi</button>
+    </aside>
+    <div class="min-w-0">
+     <header class="flex items-center justify-between border-b px-4 py-4 sm:px-7" style="border-color:var(--line);background:var(--surface)">
+      <div>
+       <p data-template-id="app-kicker" class="canva-text m-0 text-xs font-bold uppercase tracking-widest" style="color: rgb(8, 127, 91); font-weight: 700; font-style: normal; font-size: 12px; letter-spacing: 0.08rem;">Pencatat Keuangan</p>
+       <h1 data-template-id="app-title" class="canva-text m-0 mt-1 text-xl font-bold sm:text-2xl" style="color: rgb(21, 50, 43); font-weight: 700; font-style: normal; font-size: 32px;">Dompetku</h1>
+      </div><div class="flex h-11 w-11 items-center justify-center overflow-hidden rounded-2xl shadow-sm" aria-label="Logo Dompetku" title="Dompetku">
+       <img src="./icon-192.png" alt="Logo Dompetku" class="h-full w-full object-cover">
+      </div>
+     </header>
+     <main class="content-frame px-4 py-5 pb-32 sm:px-7 sm:py-7">
+      <section id="homeView" class="view active" aria-labelledby="home-heading">
+       <div class="mb-5 flex items-end justify-between">
+        <div>
+         <h2 id="home-heading" data-template-id="home-heading-text" class="canva-text m-0 text-2xl font-bold" style="color: rgb(21, 50, 43); font-weight: 700; font-style: normal; font-size: 24px;">Ringkasan Keuangan</h2>
+         <p id="todayText" class="mt-1 text-sm muted"></p>
+        </div>
+       </div>
+       <article class="card overflow-hidden p-5 text-white sm:p-6" style="background:linear-gradient(135deg,#087f5b,#075f48)">
+        <p data-template-id="balance-label" class="canva-text m-0 text-sm font-medium text-emerald-100" style="color: rgb(209, 250, 229); font-weight: 500; font-style: normal; font-size: 16px;">Saldo Saat Ini</p>
+        <p id="currentBalance" class="mt-2 text-3xl font-bold tracking-tight sm:text-4xl">Rp0</p>
+        <div class="mt-5 flex items-center gap-2 text-sm text-emerald-100">
+         <span class="inline-block h-2 w-2 rounded-full bg-emerald-300"></span>Seluruh transaksi tercatat
+        </div>
+       </article>
+       <div class="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-3 sm:gap-4">
+        <article class="surface card metric-card p-3 sm:p-4">
+         <p data-template-id="income-label" class="canva-text m-0 text-[13px] leading-tight font-semibold sm:text-sm" style="color: rgb(100, 116, 139); font-weight: 600; font-style: normal;">Pemasukan bulan ini</p>
+         <p id="monthIncome" class="metric-value mt-2 font-bold" style="color:#087f5b">Rp0</p>
+        </article>
+        <article class="surface card metric-card p-3 sm:p-4">
+         <p data-template-id="expense-label" class="canva-text m-0 text-[13px] leading-tight font-semibold sm:text-sm" style="color: rgb(100, 116, 139); font-weight: 600; font-style: normal;">Pengeluaran bulan ini</p>
+         <p id="monthExpense" class="metric-value mt-2 font-bold" style="color:#c2413a">Rp0</p>
+        </article>
+        <article class="surface card metric-card p-3 sm:p-4">
+         <p data-template-id="remaining-label" class="canva-text m-0 text-[13px] leading-tight font-semibold sm:text-sm" style="color: rgb(100, 116, 139); font-weight: 600; font-style: normal;">Sisa bulan ini</p>
+         <p id="monthRemaining" class="metric-value mt-2 font-bold" style="color:#15322b">Rp0</p>
+        </article>
+       </div>
+       <div class="mt-5 grid gap-5 lg:grid-cols-2">
+        <article class="surface card p-5">
+         <div class="flex items-center justify-between">
+          <div>
+           <h3 data-template-id="category-summary-title" class="canva-text m-0 font-bold" style="color: rgb(21, 50, 43); font-weight: 700; font-style: normal; font-size: 19px;">Pengeluaran per Kategori</h3>
+           <p class="mt-1 text-xs muted">Bulan berjalan</p>
+          </div><span class="rounded-lg px-2 py-1 text-xs font-bold" style="background:var(--brand-soft);color:var(--brand)">Kategori</span>
+         </div>
+         <div id="categorySummary" class="mt-4 space-y-3"></div>
+        </article>
+        <article class="surface card p-5">
+         <div class="flex items-center justify-between">
+          <div>
+           <h3 data-template-id="monthly-chart-title" class="canva-text m-0 font-bold" style="color: rgb(21, 50, 43); font-weight: 700; font-style: normal; font-size: 19px;">Pengeluaran Bulanan</h3>
+           <p class="mt-1 text-xs muted">6 bulan terakhir</p>
+          </div>
+         </div>
+         <div id="monthlyChart" class="mt-5 flex h-40 items-end justify-between gap-2" aria-label="Grafik pengeluaran bulanan"></div>
+        </article>
+       </div>
+       <article class="surface card mt-5 p-5">
+        <div class="flex items-center justify-between">
+         <div>
+          <h3 data-template-id="recent-title" class="canva-text m-0 font-bold" style="color: rgb(21, 50, 43); font-weight: 700; font-style: normal; font-size: 19px;">Transaksi Terbaru</h3>
+          <p class="mt-1 text-xs muted">Aktivitas paling baru</p>
+         </div><button type="button" id="viewAllTransactions" class="text-sm font-bold" style="color:var(--brand)">Lihat semua</button>
+        </div>
+        <div id="recentTransactions" class="mt-4 space-y-2"></div>
+       </article>
+      </section>
+      <section id="transactionsView" class="view" aria-labelledby="transactions-heading">
+       <div class="mb-5 flex flex-wrap items-end justify-between gap-3">
+        <div>
+         <h2 id="transactions-heading" data-template-id="transactions-title" class="canva-text m-0 text-2xl font-bold" style="color: rgb(21, 50, 43); font-weight: 700; font-style: normal; font-size: 24px;">Riwayat Transaksi</h2>
+         <p class="mt-1 text-sm muted">Cari, filter, edit, atau hapus catatan Anda.</p>
+        </div><button id="transactionsAdd" type="button" class="rounded-xl px-4 py-3 text-sm font-bold text-white" style="background:var(--brand)">+ Tambah</button>
+       </div>
+       <div class="surface card p-4">
+        <div class="grid gap-3 md:grid-cols-4">
+         <div>
+          <label for="searchInput" class="mb-1 block text-xs font-bold muted">Cari transaksi</label><input id="searchInput" class="w-full rounded-xl border px-3 py-2.5" style="border-color:var(--line);background:var(--surface);color:var(--ink)" placeholder="Kategori atau catatan">
+         </div>
+         <div>
+          <label for="typeFilter" class="mb-1 block text-xs font-bold muted">Jenis</label><select id="typeFilter" class="w-full rounded-xl border px-3 py-2.5" style="border-color:var(--line);background:var(--surface);color:var(--ink)"><option value="">Semua jenis</option><option value="income">Pemasukan</option><option value="expense">Pengeluaran</option><option value="transfer">Transfer</option></select>
+         </div>
+         <div>
+          <label for="categoryFilter" class="mb-1 block text-xs font-bold muted">Kategori</label><select id="categoryFilter" class="w-full rounded-xl border px-3 py-2.5" style="border-color:var(--line);background:var(--surface);color:var(--ink)"><option value="">Semua kategori</option></select>
+         </div>
+         <div>
+          <label for="periodFilter" class="mb-1 block text-xs font-bold muted">Periode</label><select id="periodFilter" class="w-full rounded-xl border px-3 py-2.5" style="border-color:var(--line);background:var(--surface);color:var(--ink)"><option value="">Semua waktu</option><option value="today">Hari ini</option><option value="week">7 hari terakhir</option><option value="month">Bulan ini</option></select>
+         </div>
+        </div>
+       </div>
+       <div id="transactionList" class="mt-4 space-y-3"></div>
+      </section>
+      <section id="statisticsView" class="view" aria-labelledby="statistics-heading">
+       <div class="mb-5">
+        <h2 id="statistics-heading" data-template-id="statistics-title" class="canva-text m-0 text-2xl font-bold" style="color: rgb(21, 50, 43); font-weight: 700; font-style: normal; font-size: 24px;">Statistik</h2>
+        <p class="mt-1 text-sm muted">Pantau pola pengeluaran Anda.</p>
+       </div>
+       <div class="surface card p-4">
+        <div class="stats-filter-mobile">
+         <div>
+          <label for="statsPeriod" class="mb-1 block text-xs font-bold muted">Periode</label><select id="statsPeriod" class="w-full rounded-xl border px-3 py-2.5" style="border-color:var(--line);background:var(--surface);color:var(--ink)"><option value="daily">Hari ini</option><option value="weekly">7 hari terakhir</option><option value="monthly" selected="">Bulan ini</option><option value="range">Rentang tanggal</option></select>
+         </div>
+         <div id="statsStartWrap" class="hidden stats-date-field">
+          <label for="statsStart" class="mb-1 block text-xs font-bold muted">Tanggal mulai</label><input id="statsStart" type="date" class="w-full rounded-xl border px-3 py-2.5" style="border-color:var(--line);background:var(--surface);color:var(--ink)">
+         </div>
+         <div id="statsEndWrap" class="hidden stats-date-field">
+          <label for="statsEnd" class="mb-1 block text-xs font-bold muted">Tanggal akhir</label><input id="statsEnd" type="date" class="w-full rounded-xl border px-3 py-2.5" style="border-color:var(--line);background:var(--surface);color:var(--ink)">
+         </div>
+        </div>
+       </div>
+       <div class="mt-4 grid grid-cols-2 gap-3 lg:grid-cols-4">
+        <article class="surface card p-4">
+         <p class="text-xs font-semibold muted">Total pengeluaran</p>
+         <p id="statExpense" class="mt-2 text-lg font-bold" style="color:var(--danger)">Rp0</p>
+        </article>
+        <article class="surface card p-4">
+         <p class="text-xs font-semibold muted">Total pemasukan</p>
+         <p id="statIncome" class="mt-2 text-lg font-bold" style="color:var(--brand)">Rp0</p>
+        </article>
+        <article class="surface card p-4">
+         <p class="text-xs font-semibold muted">Kategori terbesar</p>
+         <p id="statLargest" class="mt-2 text-sm font-bold">—</p>
+        </article>
+        <article class="surface card p-4">
+         <p class="text-xs font-semibold muted">Rata-rata / hari</p>
+         <p id="statAverage" class="mt-2 text-lg font-bold">Rp0</p>
+        </article>
+       </div>
+       <div class="mt-5 grid gap-5 lg:grid-cols-2 stats-chart-grid">
+        <article class="surface card p-5">
+         <h3 class="m-0 font-bold">Tren pengeluaran</h3>
+         <p class="mt-1 text-xs muted">Setiap batang mewakili satu hari</p>
+         <div id="statsChart" class="mt-5 flex h-44 items-end gap-2 overflow-x-auto pb-2"></div>
+        </article>
+        <article class="surface card p-5">
+         <h3 class="m-0 font-bold">Pengeluaran per kategori</h3>
+         <p class="mt-1 text-xs muted">Distribusi pada periode terpilih</p>
+         <div id="statsCategories" class="mt-5 space-y-3"></div>
+        </article>
+       </div>
+      </section>
+      <section id="budgetView" class="view" aria-labelledby="budget-heading">
+       <div class="mb-5">
+        <h2 id="budget-heading" data-template-id="budget-title" class="canva-text m-0 text-2xl font-bold" style="color: rgb(21, 50, 43); font-weight: 700; font-style: normal; font-size: 24px;">Budget</h2>
+        <p class="mt-1 text-sm muted">Tetapkan batas belanja untuk bulan berjalan.</p>
+       </div>
+       <div class="grid gap-5 lg:grid-cols-5">
+        <article class="surface card p-5 lg:col-span-3">
+         <h3 class="m-0 font-bold">Penggunaan budget bulan ini</h3>
+         <div class="mt-5 budget-summary">
+          <div class="budget-stat">
+           <p class="m-0 text-xs font-semibold muted">Budget</p>
+           <p id="budgetAmountDisplay" class="mt-1 font-bold metric-value">Rp0</p>
+          </div>
+          <div class="budget-stat budget-stat-used">
+           <p class="m-0 text-xs font-semibold muted">Digunakan</p>
+           <p id="budgetUsedDisplay" class="mt-1 font-bold metric-value" style="color:var(--danger)">Rp0</p>
+          </div>
+          <div class="budget-stat">
+           <p class="m-0 text-xs font-semibold muted">Sisa</p>
+           <p id="budgetLeftDisplay" class="mt-1 font-bold metric-value">Rp0</p>
+          </div>
+         </div>
+         <div class="mt-6 h-3 overflow-hidden rounded-full" style="background:var(--line)">
+          <div id="budgetProgress" class="progress-fill h-full rounded-full" style="width:0%;background:var(--brand)"></div>
+         </div>
+         <p id="budgetStatus" class="mt-3 text-sm font-semibold muted">Belum ada budget bulan ini.</p>
+        </article>
+        <form id="budgetForm" class="surface card p-5 lg:col-span-2">
+         <h3 class="m-0 font-bold">Atur budget</h3><label for="budgetInput" class="mt-4 block text-sm font-semibold">Nominal budget bulanan</label> <input id="budgetInput" type="text" inputmode="numeric" autocomplete="off" class="mt-2 w-full rounded-xl border px-3 py-3" style="border-color:var(--line);background:var(--surface);color:var(--ink)" placeholder="Contoh: 3000000"> <button data-template-id="save-budget-button" type="submit" class="canva-button mt-4 w-full rounded-xl px-4 py-3 font-bold text-white" style="background: rgb(8, 127, 91); color: rgb(255, 255, 255); font-weight: 700; font-style: normal; font-size: 16px;">Simpan Budget</button>
+        </form>
+       </div>
+      </section>
+      <section id="accountsView" class="view" aria-labelledby="accounts-heading">
+       <div class="mb-5">
+        <h2 id="accounts-heading" class="m-0 text-2xl font-bold">Saldo & Rekap</h2>
+        <p class="mt-1 text-sm muted">Lihat saldo masing-masing akun dan ringkasan pengeluaran berdasarkan kategori.</p>
+       </div>
+       <article class="surface card p-5">
+        <div class="flex items-center justify-between gap-3"><div><h3 class="m-0 font-bold">Saldo Akun</h3><p class="mt-1 text-xs muted">Saldo dihitung dari pemasukan, pengeluaran, dan transfer antar akun.</p></div></div>
+        <div id="accountBalances" class="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3"></div>
+       </article>
+       <article class="surface card mt-5 p-5">
+        <div class="flex items-center justify-between gap-3"><div><h3 class="m-0 font-bold">Rekap Pengeluaran per Kategori</h3><p class="mt-1 text-xs muted">Total pengeluaran dari seluruh transaksi yang tercatat.</p></div></div>
+        <div id="categoryRecap" class="mt-4 space-y-3"></div>
+       </article>
+      </section>
+      <section id="debtsView" class="view" aria-labelledby="debts-heading">
+       <div class="mb-5"><h2 id="debts-heading" class="m-0 text-2xl font-bold">Utang & Piutang</h2><p class="mt-1 text-sm muted">Catat uang yang harus dibayar dan uang yang harus diterima.</p></div>
+       <div class="grid gap-3 sm:grid-cols-2"><article class="surface card p-4"><p class="m-0 text-sm muted">Sisa utang</p><p id="debtTotal" class="mt-2 text-2xl font-bold" style="color:var(--danger)">Rp0</p></article><article class="surface card p-4"><p class="m-0 text-sm muted">Sisa piutang</p><p id="receivableTotal" class="mt-2 text-2xl font-bold" style="color:var(--brand)">Rp0</p></article></div>
+       <article class="surface card mt-4 p-4"><h3 class="m-0 font-bold">Tambah catatan</h3><form id="debtForm" class="mt-3 grid gap-3 sm:grid-cols-2"><select id="debtKind" class="rounded-xl border p-3"><option value="debt">Saya berutang</option><option value="receivable">Orang berutang kepada saya</option></select><input id="debtPerson" required maxlength="80" placeholder="Nama orang" class="rounded-xl border p-3"><input id="debtAmount" required inputmode="numeric" placeholder="Nominal (Rp)" class="rounded-xl border p-3"><input id="debtDate" type="date" required class="rounded-xl border p-3"><input id="debtDue" type="date" class="rounded-xl border p-3"><select id="debtAccount" class="rounded-xl border p-3"><option>Cash</option><option>DANA</option><option>ShopeePay</option><option>E-Wallet Lainnya</option><option>BRI</option><option>BSI</option><option>Bank Lainnya</option></select><input id="debtNote" placeholder="Keterangan (opsional)" class="rounded-xl border p-3 sm:col-span-2"><button class="rounded-xl p-3 font-bold text-white sm:col-span-2" style="background:var(--brand)">Simpan Catatan</button></form><p class="mt-2 text-xs muted">Pencatatan utang menambah saldo akun saat menerima pinjaman. Piutang mengurangi saldo akun saat uang dipinjamkan.</p></article>
+       <div class="mt-5 flex flex-wrap gap-2"><button id="debtTab" class="rounded-xl px-4 py-2 font-semibold" style="background:var(--brand-soft);color:var(--brand)">Utang</button><button id="receivableTab" class="rounded-xl px-4 py-2 font-semibold">Piutang</button></div><div id="debtList" class="mt-3 space-y-3"></div>
+      </section>
+      <section id="futureView" class="view" aria-labelledby="future-heading"><div class="mb-5"><h2 id="future-heading" class="m-0 text-2xl font-bold">Pengeluaran Mendatang</h2><p class="mt-1 text-sm muted">Rencanakan pembayaran. Saldo baru berkurang setelah pembayaran dikonfirmasi.</p></div>
+       <article class="surface card p-4"><p class="m-0 text-sm muted">Total belum dibayar</p><p id="futureTotal" class="mt-2 text-2xl font-bold">Rp0</p><form id="futureForm" class="mt-3 grid gap-3 sm:grid-cols-2"><input id="futureName" required maxlength="100" placeholder="Nama pengeluaran" class="rounded-xl border p-3"><input id="futureAmount" required inputmode="numeric" placeholder="Nominal (Rp)" class="rounded-xl border p-3"><select id="futureCategory" class="rounded-xl border p-3"></select><input id="futureDate" type="date" required class="rounded-xl border p-3"><select id="futureAccount" class="rounded-xl border p-3"><option>Cash</option><option>DANA</option><option>ShopeePay</option><option>E-Wallet Lainnya</option><option>BRI</option><option>BSI</option><option>Bank Lainnya</option></select><input id="futureNote" placeholder="Catatan (opsional)" class="rounded-xl border p-3"><button class="rounded-xl p-3 font-bold text-white sm:col-span-2" style="background:var(--brand)">Tambah Rencana</button></form></article><div id="futureList" class="mt-4 space-y-3"></div>
+      </section>
+      <section id="settingsView" class="view" aria-labelledby="settings-heading">
+       <div class="mb-5">
+        <h2 id="settings-heading" data-template-id="settings-title" class="canva-text m-0 text-2xl font-bold" style="color: rgb(21, 50, 43); font-weight: 700; font-style: normal; font-size: 24px;">Pengaturan</h2>
+        <p class="mt-1 text-sm muted">Preferensi dan pengelolaan data Anda.</p>
+       </div>
+       <div class="grid gap-5 lg:grid-cols-2">
+        <article class="surface card p-5">
+         <h3 class="m-0 font-bold">Preferensi</h3>
+         <p class="mt-1 text-sm muted">Atur mata uang yang digunakan di aplikasi.</p>
+         <label for="currencySelect" class="mt-5 block text-sm font-semibold">Mata uang</label> <select id="currencySelect" class="mt-2 w-full rounded-xl border px-3 py-3" style="border-color:var(--line);background:var(--surface);color:var(--ink)"><option value="IDR">Rupiah (Rp)</option><option value="USD">US Dollar ($)</option><option value="SGD">Singapore Dollar (S$)</option></select>
+        </article>
+        <article class="surface card p-5">
+         <h3 class="m-0 font-bold">Data lokal perangkat</h3>
+         <p data-template-id="storage-note" class="canva-text mt-2 text-sm leading-6" style="color: rgb(100, 116, 139); font-weight: 400; font-style: normal; font-size: 14px; line-height: 1.5;">Data disimpan secara lokal pada perangkat ini. Gunakan backup agar data dapat dipulihkan di kemudian hari.</p>
+         <div class="mt-5 grid gap-3 sm:grid-cols-2"><button data-template-id="backup-button" id="backupBtn" type="button" class="canva-button rounded-xl px-4 py-3 font-bold" style="background: rgb(229, 246, 239); color: rgb(8, 127, 91); font-weight: 700; font-style: normal; font-size: 16px;">Backup Data</button> <button data-template-id="csv-button" id="csvBtn" type="button" class="canva-button rounded-xl px-4 py-3 font-bold" style="background: rgb(229, 246, 239); color: rgb(8, 127, 91); font-weight: 700; font-style: normal; font-size: 16px;">Export CSV</button> <button data-template-id="restore-button" id="restoreBtn" type="button" class="canva-button rounded-xl px-4 py-3 font-bold" style="background: rgb(237, 244, 241); color: rgb(21, 50, 43); font-weight: 700; font-style: normal; font-size: 16px;">Restore Data</button> <button id="demoBtn" type="button" class="canva-button rounded-xl px-4 py-3 font-bold sm:col-span-2" style="background: rgb(255, 247, 232); color: rgb(180, 83, 9); font-weight: 700; font-style: normal; font-size: 16px;">Muat Data Demo</button> <button data-template-id="clear-data-button" id="clearBtn" type="button" class="canva-button rounded-xl px-4 py-3 font-bold sm:col-span-2" style="background: rgb(255, 240, 238); color: rgb(194, 65, 58); font-weight: 700; font-style: normal; font-size: 16px;">Hapus Seluruh Data</button>
+         </div><input id="restoreInput" type="file" accept=".json,.csv,application/json,text/csv" class="hidden">
+        </article>
+       </div>
+       <div class="mobile-bottom-spacer" aria-hidden="true"></div>
+      </section>
+     </main>
+    </div>
+   </div>
+   <button id="fabAdd" type="button" aria-label="Tambah transaksi" class="home-fab fixed bottom-24 right-5 z-40 hidden h-14 w-14 select-none items-center justify-center rounded-full text-3xl text-white shadow-xl md:hidden" style="background:var(--brand)">+</button>
+   <nav class="mobile-nav fixed bottom-0 left-0 z-30 flex w-full justify-start gap-1 overflow-x-auto border-t px-1 py-2" aria-label="Navigasi utama" style="border-color:var(--line);background:var(--surface)"><button class="nav-item active flex min-w-[58px] flex-1 flex-col items-center gap-1 rounded-xl py-1.5 text-xs font-semibold" data-view="home">
+     <svg class="nav-icon" viewBox="0 0 24 24">
+      <path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1Z"></path>
+     </svg>Beranda</button> <button class="nav-item flex min-w-[58px] flex-1 flex-col items-center gap-1 rounded-xl py-1.5 text-xs font-semibold" data-view="transactions">
+     <svg class="nav-icon" viewBox="0 0 24 24">
+      <path d="M4 5h16M4 12h16M4 19h16"></path>
+     </svg>Transaksi</button> <button class="nav-item flex min-w-[58px] flex-1 flex-col items-center gap-1 rounded-xl py-1.5 text-xs font-semibold" data-view="statistics">
+     <svg class="nav-icon" viewBox="0 0 24 24">
+      <path d="M4 20V10M10 20V4M16 20v-7"></path>
+     </svg>Statistik</button> <button class="nav-item flex min-w-[58px] flex-1 flex-col items-center gap-1 rounded-xl py-1.5 text-xs font-semibold" data-view="budget">
+     <svg class="nav-icon" viewBox="0 0 24 24">
+      <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+     </svg>Budget</button> <button class="nav-item flex min-w-[58px] flex-1 flex-col items-center gap-1 rounded-xl py-1.5 text-xs font-semibold" data-view="accounts">
+     <svg class="nav-icon" viewBox="0 0 24 24">
+      <rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M7 9h10M7 13h6"></path>
+     </svg>Saldo</button> <button class="nav-item flex min-w-[58px] flex-1 flex-col items-center gap-1 rounded-xl py-1.5 text-xs font-semibold" data-view="settings">
+     <svg class="nav-icon" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="3"></circle><path d="M12 2v3M12 19v3M2 12h3M19 12h3"></path>
+     </svg>Atur</button>
+    <button class="nav-item flex min-w-[58px] flex-1 flex-col items-center gap-1 rounded-xl py-1.5 text-xs font-semibold" data-view="debts">Utang</button>
+    <button class="nav-item flex min-w-[58px] flex-1 flex-col items-center gap-1 rounded-xl py-1.5 text-xs font-semibold" data-view="future">Rencana</button>
+   </nav>
+  </div>
+  <div id="transactionModal" class="modal-backdrop fixed inset-0 z-50 hidden items-end justify-center p-0 sm:items-center sm:p-5" role="dialog" aria-modal="true" aria-labelledby="transactionModalTitle">
+   <div class="modal-panel w-full overflow-y-auto rounded-t-3xl p-5 sm:max-w-xl sm:rounded-3xl" style="background:var(--surface)">
+    <div class="flex items-center justify-between">
+     <h2 id="transactionModalTitle" class="text-xl font-bold">Tambah Transaksi</h2><button id="closeTransactionModal" type="button" aria-label="Tutup form transaksi" class="flex h-10 w-10 items-center justify-center rounded-xl text-xl" style="background:var(--brand-soft);color:var(--brand)">×</button>
+    </div>
+    <form id="transactionForm" class="mt-5"><input id="transactionId" type="hidden">
+     <div>
+      <label for="transactionType" class="block text-sm font-semibold">Jenis transaksi</label><select id="transactionType" required="" class="mt-2 w-full rounded-xl border px-3 py-3" style="border-color:var(--line);background:var(--surface);color:var(--ink)"><option value="expense">Pengeluaran</option><option value="income">Pemasukan</option><option value="transfer">Transfer</option></select>
+     </div>
+     <div class="mt-4">
+      <label for="transactionAmount" class="block text-sm font-semibold">Nominal</label><input id="transactionAmount" required="" type="text" inputmode="numeric" autocomplete="off" class="mt-2 w-full rounded-xl border px-3 py-3" style="border-color:var(--line);background:var(--surface);color:var(--ink)" placeholder="Masukkan nominal">
+     </div>
+     <div id="transferFields" class="mt-4 hidden grid gap-4 sm:grid-cols-2">
+      <div>
+       <label for="transferFrom" class="block text-sm font-semibold">Dari</label><select id="transferFrom" class="mt-2 w-full rounded-xl border px-3 py-3" style="border-color:var(--line);background:var(--surface);color:var(--ink)">
+        <option value="BRI">BRI</option><option value="BSI">BSI</option><option value="DANA">DANA</option><option value="ShopeePay">ShopeePay</option><option value="E-Wallet Lainnya">E-Wallet Lainnya</option><option value="Cash">Cash</option><option value="Bank Lainnya">Bank Lainnya</option>
+       </select>
+      </div>
+      <div>
+       <label for="transferTo" class="block text-sm font-semibold">Ke</label><select id="transferTo" class="mt-2 w-full rounded-xl border px-3 py-3" style="border-color:var(--line);background:var(--surface);color:var(--ink)">
+        <option value="DANA">DANA</option><option value="ShopeePay">ShopeePay</option><option value="E-Wallet Lainnya">E-Wallet Lainnya</option><option value="BRI">BRI</option><option value="BSI">BSI</option><option value="Bank Lainnya">Bank Lainnya</option><option value="Cash">Cash</option>
+       </select>
+      </div>
+     </div>
+     <div id="categoryDateFields" class="mt-4 grid gap-4 sm:grid-cols-2">
+      <div id="categoryField">
+       <label for="transactionCategory" class="block text-sm font-semibold">Kategori</label><select id="transactionCategory" required="" class="mt-2 w-full rounded-xl border px-3 py-3" style="border-color:var(--line);background:var(--surface);color:var(--ink)"></select>
+      </div>
+      <div>
+       <label for="transactionDate" class="block text-sm font-semibold">Tanggal</label><input id="transactionDate" required="" type="date" class="mt-2 w-full rounded-xl border px-3 py-3" style="border-color:var(--line);background:var(--surface);color:var(--ink)">
+      </div>
+     </div>
+     <div id="paymentMethodWrap" class="mt-4">
+      <label for="paymentDropdownButton" class="block text-sm font-semibold">Metode pembayaran</label>
+      <input id="paymentMethod" type="hidden" value="Cash">
+      <div id="paymentDropdown" class="relative mt-2">
+       <button id="paymentDropdownButton" type="button" aria-haspopup="listbox" aria-expanded="false" class="flex w-full items-center justify-between rounded-xl border px-4 py-3 text-left font-semibold" style="border-color:var(--line);background:var(--surface);color:var(--ink)">
+        <span id="paymentDropdownLabel">Cash</span><span id="paymentDropdownChevron" class="text-lg muted">⌄</span>
+       </button>
+       <div id="paymentDropdownMenu" class="payment-menu absolute left-0 right-0 top-full z-[80] mt-2 hidden rounded-2xl border p-2 shadow-xl" style="border-color:var(--line);background:var(--surface)">
+        <button type="button" class="payment-menu-option" data-payment="Cash"><span>Cash</span></button>
+        <p class="payment-menu-group">E-Wallet</p>
+        <button type="button" class="payment-menu-option" data-payment="DANA"><span>DANA</span></button>
+        <button type="button" class="payment-menu-option" data-payment="ShopeePay"><span>ShopeePay</span></button>
+        <button type="button" class="payment-menu-option" data-payment="E-Wallet Lainnya"><span>Lainnya</span></button>
+        <p class="payment-menu-group">Bank</p>
+        <button type="button" class="payment-menu-option" data-payment="BRI"><span>BRI</span></button>
+        <button type="button" class="payment-menu-option" data-payment="BSI"><span>BSI</span></button>
+        <button type="button" class="payment-menu-option" data-payment="Bank Lainnya"><span>Lainnya</span></button>
+       </div>
+      </div>
+     </div>
+     <div class="mt-4">
+      <label for="transactionNote" class="block text-sm font-semibold">Catatan / keterangan <span class="muted font-normal">(opsional, bisa isi nama penerima)</span></label><textarea id="transactionNote" placeholder="Contoh: Sedekah ke masjid, memberi Andi, dll." rows="3" class="mt-2 w-full resize-none rounded-xl border px-3 py-3" style="border-color:var(--line);background:var(--surface);color:var(--ink)" placeholder="Contoh: Makan siang"></textarea>
+     </div>
+     <p id="transactionError" class="mt-3 hidden text-sm font-semibold" style="color:var(--danger)"></p>
+     <div class="mt-5 flex gap-3">
+      <button id="cancelTransaction" type="button" class="flex-1 rounded-xl px-4 py-3 font-bold" style="background:var(--brand-soft);color:var(--brand)">Batal</button><button data-template-id="save-transaction-button" type="submit" class="canva-button flex-1 rounded-xl px-4 py-3 font-bold text-white" style="background: rgb(8, 127, 91); color: rgb(255, 255, 255); font-weight: 700; font-style: normal; font-size: 16px;">Simpan Transaksi</button>
+     </div>
+    </form>
+   </div>
+  </div>
+  <div id="confirmModal" class="modal-backdrop fixed inset-0 z-[60] hidden items-center justify-center p-5" role="dialog" aria-modal="true" aria-labelledby="confirmTitle">
+   <div class="w-full max-w-md rounded-3xl p-6" style="background:var(--surface)">
+    <h2 id="confirmTitle" class="text-xl font-bold">Konfirmasi</h2>
+    <p id="confirmText" class="mt-2 leading-6 muted"></p>
+    <div class="mt-6 flex gap-3">
+     <button id="confirmCancel" type="button" class="flex-1 rounded-xl px-4 py-3 font-bold" style="background:var(--brand-soft);color:var(--brand)">Batal</button><button id="confirmProceed" type="button" class="flex-1 rounded-xl px-4 py-3 font-bold text-white" style="background:var(--danger)">Lanjutkan</button>
+    </div>
+   </div>
+  </div>
+  <div id="toast" class="toast fixed bottom-24 left-4 right-4 z-[70] rounded-xl px-4 py-3 text-center text-sm font-bold text-white shadow-lg sm:left-auto sm:right-6 sm:w-auto" style="background:var(--ink)" role="status" aria-live="polite"></div>
+  <script>
+    (() => {
+      const STORAGE = "dompetku.personal.finance.v1";
+      const expenseCategories = ["Makanan & Minuman","Transportasi","Belanja","Pulsa & Internet","Kos/Tempat Tinggal","Pendidikan","Kesehatan","Hiburan","Biba (Pacar)","Sedekah & Donasi","Bantuan Orang","Hadiah & Pemberian","Kebutuhan Pribadi","Lainnya"];
+      const incomeCategories = ["Uang Saku","Gaji","Beasiswa","Freelance","Transfer","Lainnya"];
+      const colors = ["#087f5b","#2a9d8f","#3182ce","#8b5cf6","#e76f51","#e9a23b","#d65d8b","#607d8b","#4f8a10","#bb6b1f"];
+      let state = { transactions: [], budget: 0, theme: "light", currency: "IDR", debts: [], futureExpenses: [] };
+      let pendingConfirm = null;
+      let formDirty = false;
+
+      const $ = id => document.getElementById(id);
+      const todayISO = () => new Date().toISOString().slice(0, 10);
+      const dateLocal = iso => new Intl.DateTimeFormat("id-ID", { day:"numeric", month:"short", year:"numeric" }).format(new Date(iso + "T12:00:00"));
+      const money = amount => new Intl.NumberFormat("id-ID", { style:"currency", currency: state.currency || "IDR", maximumFractionDigits: 0 }).format(Number(amount || 0));
+      const formatAmountInput = value => { const digits=String(value||"").replace(/\D/g,""); return digits ? new Intl.NumberFormat("id-ID", {maximumFractionDigits:0}).format(Number(digits)) : ""; };
+      const parseAmountInput = value => Number(String(value||"").replace(/\D/g,""));
+      const sum = list => list.reduce((n, item) => n + Number(item.amount || 0), 0);
+      const escapeHtml = text => String(text || "").replace(/[&<>"']/g, c => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;" }[c]));
+      const currentMonth = () => new Date().toISOString().slice(0, 7);
+
+      function showTransactionDetail(t) {
+        if (!t) return;
+        const isIncome = t.transaction_type === "income";
+        const title = t.category || "Transaksi";
+        let modal = document.getElementById("detailTransactionModal");
+        if (!modal) {
+          modal = document.createElement("div");
+          modal.id = "detailTransactionModal";
+          modal.className = "modal-backdrop fixed inset-0 z-[120] hidden items-center justify-center p-4";
+          modal.innerHTML = `<div class="surface w-full max-w-sm rounded-3xl p-5" style="background:var(--surface)">
+            <div class="flex items-start justify-between gap-3"><div><p class="m-0 text-xs font-bold uppercase tracking-wider muted">Detail transaksi</p><h3 id="detailTitle" class="m-0 mt-1 text-xl font-bold"></h3></div><button id="detailClose" type="button" class="rounded-xl px-3 py-2 font-bold" style="background:var(--line);color:var(--ink)">×</button></div>
+            <div id="detailBody" class="mt-4"></div>
+            <div class="mt-5 grid grid-cols-2 gap-2"><button id="detailEdit" type="button" class="rounded-xl px-3 py-3 font-bold" style="background:var(--brand-soft);color:var(--brand)"><span aria-hidden="true">✎</span><span class="ml-1">Edit</span></button><button id="detailDelete" type="button" class="rounded-xl px-3 py-3 font-bold" style="background:var(--danger-soft);color:var(--danger)"><span aria-hidden="true">⌫</span><span class="ml-1">Hapus</span></button></div>
+          </div>`;
+          document.body.appendChild(modal);
+          document.getElementById("detailClose").addEventListener("click",()=>modal.classList.add("hidden"));
+          modal.addEventListener("click",e=>{if(e.target===modal)modal.classList.add("hidden")});
+        }
+        document.getElementById("detailTitle").textContent=title;
+        document.getElementById("detailBody").innerHTML=`<div class="rounded-2xl p-4" style="background:${isIncome?"var(--brand-soft)":"var(--danger-soft)"}"><p class="m-0 text-2xl font-bold" style="color:${isIncome?"var(--brand)":"var(--danger)"}">${isIncome?"+":"−"}${money(t.amount)}</p></div><div class="mt-4 space-y-3 text-sm"><div class="flex justify-between gap-4"><span class="muted">Jenis</span><strong>${isIncome?"Pemasukan":"Pengeluaran"}</strong></div><div class="flex justify-between gap-4"><span class="muted">Tanggal</span><strong>${dateLocal(t.transaction_date)}</strong></div><div class="flex justify-between gap-4"><span class="muted">Metode</span><strong>${escapeHtml(t.payment_method)}</strong></div>${t.note?`<div class="pt-1"><p class="m-0 text-xs font-bold muted">Catatan</p><p class="m-0 mt-1">${escapeHtml(t.note)}</p></div>`:""}</div>`;
+        document.getElementById("detailEdit").onclick=()=>{modal.classList.add("hidden");openModal(t)};
+        document.getElementById("detailDelete").onclick=()=>{modal.classList.add("hidden");showConfirm("Hapus transaksi?","Transaksi ini akan dihapus permanen.",()=>{state.transactions=state.transactions.filter(x=>x.transaction_id!==t.transaction_id);save();renderAll();notify("Transaksi dihapus.");})};
+        modal.classList.remove("hidden"); modal.classList.add("flex");
+      }
+
+      function save() { localStorage.setItem(STORAGE, JSON.stringify(state)); }
+      function load() {
+        try {
+          const saved = JSON.parse(localStorage.getItem(STORAGE));
+          if (saved && typeof saved === "object") state = { ...state, ...saved, transactions: Array.isArray(saved.transactions) ? saved.transactions.map(normalizeTransaction).filter(Boolean) : [], debts: Array.isArray(saved.debts) ? saved.debts : [], futureExpenses: Array.isArray(saved.futureExpenses) ? saved.futureExpenses : [] };
+        } catch (_) {}
+        document.documentElement.dataset.theme = "light";
+        state.theme = "light";
+        $("currencySelect").value = state.currency;
+      }
+      function notify(message) {
+        $("toast").textContent = message; $("toast").classList.add("show");
+        clearTimeout(notify.timer); notify.timer = setTimeout(() => $("toast").classList.remove("show"), 2800);
+      }
+      function showConfirm(title, text, action, destructive = true) {
+        $("confirmTitle").textContent = title; $("confirmText").textContent = text;
+        $("confirmProceed").textContent = destructive ? "Ya, lanjutkan" : "Lanjutkan";
+        $("confirmProceed").style.background = destructive ? "var(--danger)" : "var(--brand)";
+        pendingConfirm = action; $("confirmModal").classList.remove("hidden"); $("confirmModal").classList.add("flex");
+      }
+      function closeConfirm() { $("confirmModal").classList.add("hidden"); $("confirmModal").classList.remove("flex"); pendingConfirm = null; }
+      function inMonth(t) { return t.transaction_date && t.transaction_date.slice(0,7) === currentMonth(); }
+      function totals(list = state.transactions) {
+        return { income: sum(list.filter(t => t.transaction_type === "income")), expense: sum(list.filter(t => t.transaction_type === "expense")) };
+      }
+      function sorted(list) { return [...list].sort((a,b) => new Date(b.transaction_date) - new Date(a.transaction_date) || new Date(b.updated_at || 0) - new Date(a.updated_at || 0)); }
+      function categoryMap(list) {
+        return list.reduce((acc, t) => { if (t.transaction_type === "expense") acc[t.category] = (acc[t.category] || 0) + Number(t.amount); return acc; }, {});
+      }
+      function emptyMarkup(title, message) {
+        return `<div class="rounded-2xl border border-dashed p-7 text-center" style="border-color:var(--line)"><div class="mx-auto flex h-11 w-11 items-center justify-center rounded-xl text-xl" style="background:var(--brand-soft);color:var(--brand)">⌁</div><p class="mt-3 font-bold">${title}</p><p class="mt-1 text-sm muted">${message}</p></div>`;
+      }
+      function transactionMarkup(t) {
+        const isIncome = t.transaction_type === "income";
+        return `<article class="transaction-row surface card flex items-center gap-3 p-3 transition" data-tx-id="${t.transaction_id}" tabindex="0" title="Tekan dua kali untuk melihat detail">
+          <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl font-bold" style="background:${isIncome ? "var(--brand-soft)" : "var(--danger-soft)"};color:${isIncome ? "var(--brand)" : "var(--danger)"}">${isIncome ? "↗" : "↘"}</div>
+          <div class="min-w-0 flex-1">
+            <p class="m-0 truncate text-xs font-semibold muted">${escapeHtml(t.category)}</p>
+            <p class="m-0 mt-0.5 truncate text-lg font-bold" style="color:${isIncome ? "var(--brand)" : "var(--danger)"}">${isIncome ? "+" : "−"}${money(t.amount)}</p>
+            <p class="m-0 mt-0.5 truncate text-[10px] muted">${dateLocal(t.transaction_date)} · ${escapeHtml(t.payment_method)}${t.is_demo ? " · Data demo" : ""}</p>
+          </div>
+        </article>`;
+      }
+      function debtCashNet(){return (state.debts||[]).reduce((n,d)=>n+(d.kind==="debt"?Number(d.amount||0):-Number(d.amount||0)),0)+(state.debts||[]).reduce((n,d)=>n+(d.payments||[]).reduce((m,p)=>m+(d.kind==="debt"?-Number(p.amount||0):Number(p.amount||0)),0),0);}
+      function totalBalance(){const t=totals();return t.income-t.expense+debtCashNet();}
+      function renderDebts(){const list=(state.debts||[]), debt=list.filter(x=>x.kind==="debt"), recv=list.filter(x=>x.kind==="receivable");const remain=x=>Math.max(0,Number(x.amount||0)-(x.payments||[]).reduce((n,p)=>n+Number(p.amount||0),0));$("debtTotal").textContent=money(debt.reduce((n,x)=>n+remain(x),0));$("receivableTotal").textContent=money(recv.reduce((n,x)=>n+remain(x),0));const showReceivable=$("receivableTab").dataset.active==="1";const items=showReceivable?recv:debt;$("debtList").innerHTML=items.length?items.map(x=>`<article class="surface card p-4"><div class="flex items-start justify-between gap-3"><div class="min-w-0"><h3 class="m-0 font-bold">${escapeHtml(x.person)}</h3><p class="mt-1 text-xs muted">${dateLocal(x.date)}${x.due?" · Jatuh tempo "+dateLocal(x.due):""}</p></div><span class="rounded-full px-2 py-1 text-xs font-semibold" style="background:${remain(x)===0?"var(--brand-soft)":"var(--warning-soft)"};color:${remain(x)===0?"var(--brand)":"var(--warning)"}">${remain(x)===0?"Lunas":remain(x)<x.amount?"Dibayar sebagian":"Belum dibayar"}</span></div><p class="my-2 text-xl font-bold">${money(remain(x))} <span class="text-xs font-normal muted">dari ${money(x.amount)}</span></p>${x.note?`<p class="text-sm muted">${escapeHtml(x.note)}</p>`:""}<div class="flex flex-wrap gap-2"><button class="debt-pay rounded-lg px-3 py-2 text-sm font-bold text-white" data-id="${x.id}" ${remain(x)===0?"disabled":""} style="background:var(--brand)">${showReceivable?"Terima pembayaran":"Bayar utang"}</button><button class="debt-delete rounded-lg px-3 py-2 text-sm font-semibold" data-id="${x.id}" style="background:var(--danger-soft);color:var(--danger)">Hapus</button></div></article>`).join(""):emptyMarkup(showReceivable?"Belum ada piutang":"Belum ada utang","Catatan yang dibuat akan muncul di sini.");}
+      function renderFuture(){const items=state.futureExpenses||[];const pending=items.filter(x=>x.status==="pending");$("futureTotal").textContent=money(pending.reduce((n,x)=>n+Number(x.amount||0),0));$("futureList").innerHTML=items.length?[...items].sort((a,b)=>a.date.localeCompare(b.date)).map(x=>`<article class="surface card p-4"><div class="flex items-start justify-between gap-3"><div><h3 class="m-0 font-bold">${escapeHtml(x.name)}</h3><p class="mt-1 text-xs muted">${dateLocal(x.date)} · ${escapeHtml(x.category)} · ${escapeHtml(x.account)}</p></div><span class="rounded-full px-2 py-1 text-xs font-semibold" style="background:${x.status==="paid"?"var(--brand-soft)":x.status==="cancelled"?"var(--danger-soft)":"var(--warning-soft)"};color:${x.status==="paid"?"var(--brand)":x.status==="cancelled"?"var(--danger)":"var(--warning)"}">${x.status==="paid"?"Sudah dibayar":x.status==="cancelled"?"Dibatalkan":"Belum dibayar"}</span></div><p class="my-2 text-xl font-bold">${money(x.amount)}</p>${x.note?`<p class="text-sm muted">${escapeHtml(x.note)}</p>`:""}<div class="flex flex-wrap gap-2">${x.status==="pending"?`<button class="future-pay rounded-lg px-3 py-2 text-sm font-bold text-white" data-id="${x.id}" style="background:var(--brand)">Bayar</button><button class="future-cancel rounded-lg px-3 py-2 text-sm font-semibold" data-id="${x.id}" style="background:var(--warning-soft);color:var(--warning)">Batalkan</button>`:""}</div></article>`).join(""):emptyMarkup("Belum ada rencana","Tambahkan pengeluaran yang akan dibayarkan.");}
+
+      function renderHome() {
+        const all = totals(), monthlyTransactions = state.transactions.filter(inMonth), monthly = totals(monthlyTransactions);
+        $("currentBalance").textContent = money(totalBalance());
+        $("monthIncome").textContent = money(monthly.income); $("monthExpense").textContent = money(monthly.expense); $("monthRemaining").textContent = money(monthly.income - monthly.expense);
+        $("todayText").textContent = new Intl.DateTimeFormat("id-ID",{weekday:"long",day:"numeric",month:"long",year:"numeric"}).format(new Date());
+        const map = categoryMap(monthlyTransactions), entries = Object.entries(map).sort((a,b)=>b[1]-a[1]);
+        $("categorySummary").innerHTML = entries.length ? entries.slice(0,5).map(([cat,val],i) => `<div><div class="flex justify-between gap-3 text-sm"><span class="flex min-w-0 items-center gap-2 truncate"><i class="category-dot" style="background:${colors[i % colors.length]}"></i>${escapeHtml(cat)}</span><strong>${money(val)}</strong></div><div class="mt-2 h-2 overflow-hidden rounded-full" style="background:var(--line)"><div class="h-full rounded-full" style="width:${Math.max(4, val / entries[0][1] * 100)}%;background:${colors[i % colors.length]}"></div></div></div>`).join("") : emptyMarkup("Belum ada pengeluaran", "Tambahkan transaksi untuk melihat kategori.");
+        const months = []; const now = new Date();
+        for(let i=5;i>=0;i--){ const d=new Date(now.getFullYear(),now.getMonth()-i,1); const key=`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}`; months.push({key,label:d.toLocaleDateString("id-ID",{month:"short"}),value:sum(state.transactions.filter(t=>t.transaction_type==="expense"&&t.transaction_date.slice(0,7)===key))}); }
+        const max = Math.max(...months.map(m=>m.value), 1);
+        $("monthlyChart").innerHTML = months.map(m=>`<div class="flex h-full min-w-[34px] flex-1 flex-col justify-end text-center"><span class="mb-1 text-[10px] font-bold">${m.value ? money(m.value).replace("Rp","") : ""}</span><div class="chart-bar mx-auto w-full max-w-9" style="height:${Math.max(4,m.value/max*100)}%" title="${m.label}: ${money(m.value)}"></div><span class="mt-2 text-[10px] muted">${m.label}</span></div>`).join("");
+        const recent = sorted(state.transactions).slice(0,5);
+        $("recentTransactions").innerHTML = recent.length ? recent.map(transactionMarkup).join("") : emptyMarkup("Belum ada transaksi", "Tekan Tambah Transaksi untuk mulai mencatat.");
+      }
+      function syncCustomSelect(select) {
+        const wrap = select._customWrap; if(!wrap) return;
+        const label = wrap.querySelector(".custom-select-label");
+        const menu = wrap.querySelector(".custom-select-menu");
+        const selected = [...select.options].find(o=>o.value===select.value) || select.options[0];
+        label.textContent = selected ? selected.textContent : "Pilih";
+        menu.innerHTML = [...select.options].map((o,i)=>`<button type="button" class="custom-select-option ${o.value===select.value?"selected":""}" data-value="${escapeHtml(o.value)}"><span>${escapeHtml(o.textContent)}</span>${o.value===select.value?'<span class="check">✓</span>':''}</button>`).join("");
+        menu.querySelectorAll(".custom-select-option").forEach(btn=>btn.addEventListener("click",()=>{
+          select.value = btn.dataset.value;
+          select.dispatchEvent(new Event("change",{bubbles:true}));
+          select.dispatchEvent(new Event("input",{bubbles:true}));
+          syncCustomSelect(select); closeAllCustomSelects();
+        }));
+      }
+      function closeAllCustomSelects(except=null) {
+        document.querySelectorAll(".custom-select-menu").forEach(menu=>{if(menu!==except) menu.classList.add("hidden")});
+        document.querySelectorAll(".custom-select-button").forEach(btn=>{if(btn.parentElement?.querySelector(".custom-select-menu")!==except) btn.setAttribute("aria-expanded","false")});
+      }
+      function enhanceSelect(select) {
+        if(!select || select._customWrap) return;
+        const wrap=document.createElement("div");
+        wrap.className="custom-select relative w-full";
+        if(select.classList.contains("mt-2")) wrap.classList.add("mt-2");
+        const btn=document.createElement("button");
+        btn.type="button"; btn.className="custom-select-button"; btn.setAttribute("aria-haspopup","listbox"); btn.setAttribute("aria-expanded","false");
+        btn.innerHTML='<span class="custom-select-label">Pilih</span><span class="muted text-lg">⌄</span>';
+        const menu=document.createElement("div"); menu.className="custom-select-menu hidden"; menu.setAttribute("role","listbox");
+        select.classList.add("custom-select-native");
+        select.insertAdjacentElement("afterend",wrap); wrap.append(btn,menu); select._customWrap=wrap;
+        btn.addEventListener("click",e=>{e.stopPropagation(); const open=menu.classList.contains("hidden"); closeAllCustomSelects(); menu.classList.toggle("hidden",!open); btn.setAttribute("aria-expanded",String(open)); if(open) syncCustomSelect(select);});
+        select.addEventListener("change",()=>syncCustomSelect(select));
+        syncCustomSelect(select);
+      }
+      function enhanceAllSelects(){ document.querySelectorAll("select").forEach(enhanceSelect); }
+
+      function populateCategorySelect(select, type, keep = "") {
+        const items = type === "income" ? incomeCategories : expenseCategories;
+        select.innerHTML = items.map(c=>`<option value="${c}" ${c===keep?"selected":""}>${c}</option>`).join("");
+        syncCustomSelect(select);
+      }
+      function renderTransactions() {
+        const query = $("searchInput").value.trim().toLowerCase(), type = $("typeFilter").value, cat = $("categoryFilter").value, period = $("periodFilter").value;
+        const allCats = [...new Set([...expenseCategories,...incomeCategories,state.transactions.map(t=>t.category)])].filter(Boolean);
+        const old = $("categoryFilter").value; $("categoryFilter").innerHTML = `<option value="">Semua kategori</option>${allCats.map(c=>`<option ${c===old?"selected":""}>${escapeHtml(c)}</option>`).join("")}`;
+        syncCustomSelect($("categoryFilter"));
+        let list = sorted(state.transactions).filter(t => {
+          const haystack = `${t.category||""} ${t.note||""} ${t.payment_method||""} ${t.from_account||""} ${t.to_account||""}`.toLowerCase();
+          return (!query || haystack.includes(query)) && (!type || t.transaction_type===type) && (!cat || t.category===cat);
+        });
+        const now = new Date(); now.setHours(0,0,0,0);
+        if(period==="today") list=list.filter(t=>t.transaction_date===todayISO());
+        if(period==="week") { const start=new Date(now); start.setDate(now.getDate()-6); list=list.filter(t=>new Date(t.transaction_date+"T12:00:00")>=start); }
+        if(period==="month") list=list.filter(inMonth);
+        $("transactionList").innerHTML = list.length ? list.map(transactionMarkup).join("") : emptyMarkup("Tidak ada transaksi ditemukan", "Ubah pencarian atau filter Anda.");
+      }
+      function statRange() {
+        const mode=$("statsPeriod").value, end=new Date(), start=new Date();
+        end.setHours(23,59,59,999); start.setHours(0,0,0,0);
+        if(mode==="weekly") start.setDate(start.getDate()-6);
+        if(mode==="monthly") start.setDate(1);
+        if(mode==="range") {
+          const startValue=$("statsStart").value, endValue=$("statsEnd").value;
+          if(!startValue || !endValue) return null;
+          const rangeStart=new Date(startValue+"T00:00:00"), rangeEnd=new Date(endValue+"T23:59:59");
+          if(Number.isNaN(rangeStart.getTime()) || Number.isNaN(rangeEnd.getTime()) || rangeStart>rangeEnd) return null;
+          return {start:rangeStart,end:rangeEnd};
+        }
+        return {start,end};
+      }
+      function renderStatistics() {
+        const range=statRange();
+        if(!range) {
+          $("statExpense").textContent=money(0); $("statIncome").textContent=money(0); $("statLargest").textContent="—"; $("statAverage").textContent=money(0);
+          $("statsChart").innerHTML=emptyMarkup("Pilih rentang tanggal","Tentukan tanggal mulai dan tanggal akhir untuk melihat statistik.");
+          $("statsCategories").innerHTML=emptyMarkup("Belum ada data","Pilih rentang tanggal yang valid.");
+          return;
+        }
+        const {start,end}=range;
+        const days=Math.max(1, Math.ceil((end-start)/86400000)+1);
+        if(days>366) {
+          $("statExpense").textContent=money(0); $("statIncome").textContent=money(0); $("statLargest").textContent="—"; $("statAverage").textContent=money(0);
+          $("statsChart").innerHTML=emptyMarkup("Rentang terlalu panjang","Untuk menjaga aplikasi tetap ringan, pilih rentang maksimal 1 tahun.");
+          $("statsCategories").innerHTML=emptyMarkup("Rentang terlalu panjang","Pilih rentang tanggal maksimal 1 tahun.");
+          return;
+        }
+        const list=state.transactions.filter(t=>{const d=new Date(t.transaction_date+"T12:00:00");return d>=start&&d<=end}), ts=totals(list), map=categoryMap(list), entries=Object.entries(map).sort((a,b)=>b[1]-a[1]);
+        $("statExpense").textContent=money(ts.expense); $("statIncome").textContent=money(ts.income); $("statLargest").textContent=entries.length?`${entries[0][0]} (${money(entries[0][1])})`:"—"; $("statAverage").textContent=money(ts.expense/days);
+        const daily=[]; for(let d=new Date(start);d<=end;d.setDate(d.getDate()+1)){const key=`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`; daily.push({key,label:d.toLocaleDateString("id-ID",{day:"numeric",month:"short"}),value:sum(list.filter(t=>t.transaction_type==="expense"&&t.transaction_date===key))});}
+        const max=Math.max(...daily.map(d=>d.value),1);
+        $("statsChart").innerHTML=daily.length?daily.map(d=>`<div class="flex h-full flex-none flex-col justify-end text-center" style="width:52px;flex:0 0 52px"><span class="mb-1 truncate text-[9px]">${d.value?money(d.value).replace("Rp",""):""}</span><div class="chart-bar mx-auto w-7" style="height:${Math.max(3,d.value/max*100)}%" title="${d.label}: ${money(d.value)}"></div><span class="mt-2 whitespace-nowrap text-[10px] muted">${d.label}</span></div>`).join(""):emptyMarkup("Belum ada data","Pilih periode lain.");
+        $("statsCategories").innerHTML=entries.length?entries.map(([cat,val],i)=>`<div><div class="flex justify-between gap-4 text-sm"><span class="truncate">${escapeHtml(cat)}</span><strong>${money(val)}</strong></div><div class="mt-2 h-2 overflow-hidden rounded-full" style="background:var(--line)"><div class="h-full rounded-full" style="width:${val/entries[0][1]*100}%;background:${colors[i%colors.length]}"></div></div></div>`).join(""):emptyMarkup("Belum ada pengeluaran","Data kategori akan muncul di sini.");
+      }
+      function renderBudget() {
+        const used=totals(state.transactions.filter(inMonth)).expense, budget=Number(state.budget||0), left=budget-used, percent=budget?Math.min(100,used/budget*100):0;
+        $("budgetAmountDisplay").textContent=money(budget); $("budgetUsedDisplay").textContent=money(used); $("budgetLeftDisplay").textContent=money(Math.max(0,left)); $("budgetInput").value=budget?formatAmountInput(budget):"";
+        $("budgetProgress").style.width=`${percent}%`;
+        let msg="Belum ada budget bulan ini.", color="var(--brand)";
+        if(budget){if(used>budget){msg=`Melewati budget sebesar ${money(used-budget)}.`;color="var(--danger)"}else if(used/budget>=.8){msg=`Hampir melewati budget. Sisa ${money(left)}.`;color="var(--warning)"}else{msg=`Pengeluaran masih terkendali. Sisa ${money(left)}.`;color="var(--brand)"}}
+        $("budgetStatus").textContent=msg; $("budgetStatus").style.color=color; $("budgetProgress").style.background=color;
+      }
+      function getAccountNames(){ return ["Cash","DANA","ShopeePay","E-Wallet Lainnya","BRI","BSI","Bank Lainnya"]; }
+      function renderAccounts(){
+        const accounts=getAccountNames();
+        const balances=Object.fromEntries(accounts.map(a=>[a,0]));
+        state.transactions.forEach(t=>{
+          const amount=Number(t.amount||0);
+          if(t.transaction_type==="income" && balances[t.payment_method]!==undefined) balances[t.payment_method]+=amount;
+          if(t.transaction_type==="expense" && balances[t.payment_method]!==undefined) balances[t.payment_method]-=amount;
+          if(t.transaction_type==="transfer"){
+            if(balances[t.from_account]!==undefined) balances[t.from_account]-=amount;
+            if(balances[t.to_account]!==undefined) balances[t.to_account]+=amount;
+          }
+        });
+        (state.debts||[]).forEach(d=>{const acct=d.account||"Cash";if(balances[acct]!==undefined)balances[acct]+=d.kind==="debt"?Number(d.amount||0):-Number(d.amount||0);(d.payments||[]).forEach(p=>{if(balances[p.account]!==undefined)balances[p.account]+=d.kind==="debt"?-Number(p.amount||0):Number(p.amount||0);});});
+        const labels={Cash:"Cash",DANA:"DANA",ShopeePay:"ShopeePay","E-Wallet Lainnya":"E-Wallet Lainnya",BRI:"BRI",BSI:"BSI","Bank Lainnya":"Bank Lainnya"};
+        $("accountBalances").innerHTML=accounts.map(a=>`<div class="rounded-2xl p-4" style="background:${balances[a]>=0?"var(--brand-soft)":"var(--danger-soft)"}"><div class="flex items-center justify-between gap-3"><span class="text-sm font-semibold">${labels[a]}</span></div><p class="mt-2 mb-0 text-xl font-bold" style="color:${balances[a]>=0?"var(--brand)":"var(--danger)"}">${money(balances[a])}</p></div>`).join("");
+        const map=categoryMap(state.transactions), entries=Object.entries(map).sort((a,b)=>b[1]-a[1]);
+        $("categoryRecap").innerHTML=entries.length?entries.map(([cat,val],i)=>`<div><div class="flex justify-between gap-3 text-sm"><span class="flex min-w-0 items-center gap-2 truncate"><i class="category-dot" style="background:${colors[i%colors.length]}"></i>${escapeHtml(cat)}</span><strong>${money(val)}</strong></div><div class="mt-2 h-2 overflow-hidden rounded-full" style="background:var(--line)"><div class="h-full rounded-full" style="width:${Math.max(4,val/entries[0][1]*100)}%;background:${colors[i%colors.length]}"></div></div></div>`).join(""):emptyMarkup("Belum ada pengeluaran","Tambahkan transaksi pengeluaran untuk melihat rekap kategori.");
+      }
+      function renderSettings() {
+        state.theme = "light";
+      }
+      function renderAll(){ renderHome(); renderTransactions(); renderStatistics(); renderBudget(); renderSettings(); renderAccounts(); renderDebts(); renderFuture(); }
+      function updateTransactionFormMode(type) {
+        const transfer = type === "transfer";
+        $("transferFields").classList.toggle("hidden", !transfer);
+        $("categoryField").classList.toggle("hidden", transfer);
+        $("paymentMethodWrap").classList.toggle("hidden", transfer);
+        $("transactionCategory").required = !transfer;
+        if (transfer) {
+          $("transactionCategory").innerHTML = '<option value="Transfer" selected>Transfer</option>';
+          syncCustomSelect($("transactionCategory"));
+        } else {
+          populateCategorySelect($("transactionCategory"), type, $("transactionCategory").value);
+        }
+        syncCustomSelect($("transferFrom")); syncCustomSelect($("transferTo"));
+      }
+      function openModal(transaction=null) {
+        $("transactionModal").classList.remove("hidden"); $("transactionModal").classList.add("flex");
+        $("transactionModalTitle").textContent=transaction?"Edit Transaksi":"Tambah Transaksi"; $("transactionId").value=transaction?.transaction_id||"";
+        const type=transaction?.transaction_type||"expense"; $("transactionType").value=type; syncCustomSelect($("transactionType"));
+        populateCategorySelect($("transactionCategory"), type, transaction?.category);
+        $("transactionAmount").value=transaction?.amount ? formatAmountInput(transaction.amount) : ""; $("transactionDate").value=transaction?.transaction_date||todayISO();
+        setPaymentMethod(transaction?.payment_method||"Cash");
+        $("transferFrom").value=transaction?.from_account||"BRI"; $("transferTo").value=transaction?.to_account||"DANA";
+        syncCustomSelect($("transferFrom")); syncCustomSelect($("transferTo"));
+        updateTransactionFormMode(type);
+        $("transactionNote").value=transaction?.note||""; $("transactionError").classList.add("hidden"); formDirty=false;
+        setTimeout(()=>$('transactionAmount').focus(),50);
+      }
+      function closeModal(force=false) {
+        if(formDirty&&!force){showConfirm("Batalkan perubahan?","Input yang belum disimpan akan hilang.",()=>closeModal(true),true);return;}
+        $("transactionModal").classList.add("hidden"); $("transactionModal").classList.remove("flex");
+      }
+      function download(name, content, type) { const a=document.createElement("a"); a.href=URL.createObjectURL(new Blob([content],{type}));a.download=name;document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(a.href); }
+      function csvEscape(v){const s=String(v??"");return /[",\n]/.test(s)?`"${s.replace(/"/g,'""')}"`:s;}
+      function normalizeTransaction(t) {
+        const type=t?.transaction_type;
+        if(!t || !["income","expense","transfer"].includes(type) || !Number(t.amount) || !t.transaction_date) return null;
+        if(type!=="transfer" && !t.category) return null;
+        if(type==="transfer" && (!t.from_account || !t.to_account || t.from_account===t.to_account)) return null;
+        return {record_type:"transaction",transaction_id:t.transaction_id||`tx-${Date.now()}-${Math.random().toString(16).slice(2)}`,transaction_type:type,amount:Number(t.amount),category:type==="transfer"?"Transfer":String(t.category),transaction_date:String(t.transaction_date).slice(0,10),note:String(t.note||""),payment_method:String(t.payment_method||"Cash"),from_account:type==="transfer"?String(t.from_account):"",to_account:type==="transfer"?String(t.to_account):"",monthly_budget:0,theme:"",currency:"",is_demo:Boolean(t.is_demo),created_at:t.created_at||new Date().toISOString(),updated_at:new Date().toISOString()};
+      }
+
+
+      document.querySelectorAll("[data-view]").forEach(btn=>btn.addEventListener("click",()=>{const view=btn.dataset.view;document.querySelectorAll(".view").forEach(v=>v.classList.remove("active"));$(view+"View").classList.add("active");document.querySelectorAll(".nav-item").forEach(n=>n.classList.toggle("active",n.dataset.view===view));$("fabAdd")?.classList.toggle("home-visible",view==="home");window.scrollTo({top:0,behavior:"smooth"});}));
+      ["desktopAdd","transactionsAdd"].forEach(id=>$(id)?.addEventListener("click",()=>openModal()));
+      $("fabAdd")?.addEventListener("click",()=>openModal());
+      $("viewAllTransactions").addEventListener("click",()=>document.querySelector('[data-view="transactions"]').click());
+      $("closeTransactionModal").addEventListener("click",()=>closeModal()); $("cancelTransaction").addEventListener("click",()=>closeModal());
+      $("transactionModal").addEventListener("click",e=>{if(e.target===$("transactionModal"))closeModal()});
+      $("transactionForm").addEventListener("input",()=>formDirty=true);
+      $("transactionAmount").addEventListener("input",e=>{const formatted=formatAmountInput(e.target.value);e.target.value=formatted;});
+      $("transactionType").addEventListener("change",e=>{updateTransactionFormMode(e.target.value);formDirty=true;});
+      function setPaymentMethod(value){
+        $("paymentMethod").value=value||"Cash";
+        const labelMap={"Cash":"Cash","DANA":"DANA","ShopeePay":"ShopeePay","E-Wallet Lainnya":"E-Wallet · Lainnya","BRI":"BRI","BSI":"BSI","Bank Lainnya":"Bank · Lainnya"};
+        $("paymentDropdownLabel").textContent=labelMap[$("paymentMethod").value]||$("paymentMethod").value;
+        document.querySelectorAll(".payment-menu-option").forEach(b=>b.classList.toggle("selected",b.dataset.payment===$("paymentMethod").value));
+      }
+      function closePaymentDropdown(){ $("paymentDropdownMenu").classList.add("hidden"); $("paymentDropdownButton").setAttribute("aria-expanded","false"); }
+      $("paymentDropdownButton").addEventListener("click",()=>{const menu=$("paymentDropdownMenu");const open=menu.classList.contains("hidden");menu.classList.toggle("hidden",!open);$("paymentDropdownButton").setAttribute("aria-expanded",String(open));});
+      document.querySelectorAll(".payment-menu-option").forEach(btn=>btn.addEventListener("click",()=>{setPaymentMethod(btn.dataset.payment);closePaymentDropdown();formDirty=true;}));
+      document.addEventListener("click",e=>{if(!$("paymentDropdown")?.contains(e.target))closePaymentDropdown();});
+      document.addEventListener("click",e=>{if(!e.target.closest(".custom-select"))closeAllCustomSelects();});
+      document.addEventListener("keydown",e=>{if(e.key==="Escape"){closePaymentDropdown();closeAllCustomSelects();}});
+      $("transactionForm").addEventListener("submit",e=>{
+        e.preventDefault();
+        const type=$("transactionType").value, amount=parseAmountInput($("transactionAmount").value);
+        if(!amount||amount<=0){$("transactionError").textContent="Nominal wajib diisi dengan angka positif."; $("transactionError").classList.remove("hidden");return;}
+        if(type==="transfer" && $("transferFrom").value===$("transferTo").value){$("transactionError").textContent="Sumber dan tujuan transfer harus berbeda."; $("transactionError").classList.remove("hidden");return;}
+        const id=$("transactionId").value, old=state.transactions.find(t=>t.transaction_id===id), now=new Date().toISOString();
+        const tx=normalizeTransaction({transaction_id:id||undefined,transaction_type:type,amount,category:type==="transfer"?"Transfer":$("transactionCategory").value,transaction_date:$("transactionDate").value,note:$("transactionNote").value,payment_method:type==="transfer"?"Transfer":$("paymentMethod").value,from_account:type==="transfer"?$("transferFrom").value:"",to_account:type==="transfer"?$("transferTo").value:"",is_demo:old?.is_demo,created_at:old?.created_at||now,updated_at:now});
+        if(!tx){$("transactionError").textContent="Data transaksi belum lengkap."; $("transactionError").classList.remove("hidden");return;}
+        if(id)state.transactions=state.transactions.map(t=>t.transaction_id===id?tx:t);else state.transactions.push(tx);
+        save();renderAll();closeModal(true);notify(id?"Transaksi berhasil diperbarui.":"Transaksi berhasil disimpan.");
+      });
+      ["searchInput","typeFilter","categoryFilter","periodFilter"].forEach(id=>$(id).addEventListener("input",renderTransactions));
+      function handleTransactionAction(e){
+        const btn=e.target.closest(".edit-transaction, .delete-transaction");
+        if(!btn) return;
+        const id=btn.dataset.id;
+        if(btn.classList.contains("edit-transaction")){
+          const tx=state.transactions.find(t=>t.transaction_id===id);
+          if(tx) openModal(tx);
+        } else {
+          showConfirm("Hapus transaksi?","Transaksi ini akan dihapus permanen.",()=>{state.transactions=state.transactions.filter(t=>t.transaction_id!==id);save();renderAll();notify("Transaksi dihapus.");});
+        }
+      }
+      $("transactionList").addEventListener("click",handleTransactionAction);
+      $("recentTransactions").addEventListener("click",handleTransactionAction);
+
+      // Double-tap/click: bekerja di Chrome Android dan desktop.
+      let lastTapId = null, lastTapTime = 0;
+      function openTransactionFromRow(row){
+        if(!row) return;
+        const tx=state.transactions.find(t=>t.transaction_id===row.dataset.txId);
+        if(tx) showTransactionDetail(tx);
+      }
+      function handleTransactionDoubleTap(e){
+        const row=e.target.closest("[data-tx-id]");
+        if(!row) return;
+        const now=Date.now(), id=row.dataset.txId;
+        if(lastTapId===id && now-lastTapTime<500){
+          lastTapId=null; lastTapTime=0; openTransactionFromRow(row);
+        } else { lastTapId=id; lastTapTime=now; }
+      }
+      $("transactionList").addEventListener("click",handleTransactionDoubleTap);
+      $("recentTransactions").addEventListener("click",handleTransactionDoubleTap);
+      $("transactionList").addEventListener("dblclick",e=>openTransactionFromRow(e.target.closest("[data-tx-id]")));
+      $("recentTransactions").addEventListener("dblclick",e=>openTransactionFromRow(e.target.closest("[data-tx-id]")));
+      $("transactionList").addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" ") openTransactionFromRow(e.target.closest("[data-tx-id]"));});
+      $("recentTransactions").addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" ") openTransactionFromRow(e.target.closest("[data-tx-id]"));});
+      $("statsPeriod").addEventListener("change",()=>{const show=$("statsPeriod").value==="range";$("statsStartWrap").classList.toggle("hidden",!show);$("statsEndWrap").classList.toggle("hidden",!show);if(show){const end=new Date();const start=new Date();start.setDate(end.getDate()-6);$("statsStart").value=start.toISOString().slice(0,10);$("statsEnd").value=end.toISOString().slice(0,10);}renderStatistics();}); $("statsStart").addEventListener("change",renderStatistics);$("statsEnd").addEventListener("change",renderStatistics);
+      $("budgetInput").addEventListener("input",e=>{e.target.value=formatAmountInput(e.target.value);});
+      $("budgetForm").addEventListener("submit",e=>{e.preventDefault();const value=parseAmountInput($("budgetInput").value);if(value<0||Number.isNaN(value)){notify("Masukkan nominal budget yang valid.");return;}state.budget=value;save();renderBudget();notify("Budget bulanan disimpan.");});
+      $("currencySelect").addEventListener("change",e=>{state.currency=e.target.value;save();renderAll();notify("Mata uang diperbarui.");});
+      $("backupBtn").addEventListener("click",()=>{download(`backup-dompetku-${todayISO()}.json`,JSON.stringify({app:"Dompetku",version:1,exported_at:new Date().toISOString(),state},null,2),"application/json");notify("Backup data berhasil diunduh.");});
+      $("csvBtn").addEventListener("click",()=>{const fields=["transaction_id","transaction_type","amount","category","transaction_date","note","payment_method","from_account","to_account","is_demo","created_at","updated_at"];download(`transaksi-dompetku-${todayISO()}.csv`,[fields.join(","),...state.transactions.map(t=>fields.map(f=>csvEscape(t[f])).join(","))].join("\n"),"text/csv;charset=utf-8");notify("CSV transaksi berhasil diunduh.");});
+      $("restoreBtn").addEventListener("click",()=>$("restoreInput").click());
+      $("restoreInput").addEventListener("change",e=>{const file=e.target.files[0];if(!file)return;const reader=new FileReader();reader.onload=()=>{try{let incoming;if(file.name.toLowerCase().endsWith(".csv")){const lines=String(reader.result).trim().split(/\r?\n/);const headers=lines.shift().split(",");incoming={transactions:lines.filter(Boolean).map(line=>{let cells=[],q=false,cell="";for(let i=0;i<line.length;i++){if(line[i]==='"'){if(q&&line[i+1]==='"'){cell+='"';i++;}else q=!q;}else if(line[i]===","&&!q){cells.push(cell);cell="";}else cell+=line[i];}cells.push(cell);return Object.fromEntries(headers.map((h,i)=>[h,cells[i]||""]));})};}else{const parsed=JSON.parse(reader.result);incoming=parsed.state||parsed;}const txs=(incoming.transactions||[]).map(normalizeTransaction).filter(Boolean);if(!txs.length&&incoming.transactions?.length)throw new Error();showConfirm("Pulihkan data?","Data saat ini akan digantikan dengan data dari file yang dipilih.",()=>{state={transactions:txs,budget:Number(incoming.budget||0),theme:"light",currency:incoming.currency||state.currency,debts:Array.isArray(incoming.debts)?incoming.debts:[],futureExpenses:Array.isArray(incoming.futureExpenses)?incoming.futureExpenses:[]};document.documentElement.dataset.theme=state.theme;save();renderAll();notify("Data berhasil dipulihkan.");},true);}catch(_){notify("File tidak valid. Pilih backup JSON atau CSV transaksi yang sesuai.");}};reader.readAsText(file);e.target.value="";});
+            $("demoBtn").addEventListener("click",()=>{if(state.transactions.some(t=>t.is_demo)){showConfirm("Hapus data demo?","Hanya transaksi yang ditandai sebagai data demo yang akan dihapus.",()=>{state.transactions=state.transactions.filter(t=>!t.is_demo);save();renderAll();notify("Data demo dihapus.");});return;}const now=todayISO(), d=new Date();const prior=new Date(d);prior.setDate(d.getDate()-2);state.transactions.push(...[{transaction_type:"income",amount:3500000,category:"Gaji",transaction_date:now,note:"Contoh pemasukan",payment_method:"Transfer"},{transaction_type:"expense",amount:75000,category:"Makanan & Minuman",transaction_date:now,note:"Contoh pengeluaran",payment_method:"E-Wallet"},{transaction_type:"expense",amount:30000,category:"Transportasi",transaction_date:prior.toISOString().slice(0,10),note:"Contoh pengeluaran",payment_method:"Cash"}].map(x=>normalizeTransaction({...x,is_demo:true})));save();renderAll();notify("Data demo dimuat dan ditandai jelas.");});
+      $("clearBtn").addEventListener("click",()=>showConfirm("Hapus seluruh data?","Tahap 1 dari 2: seluruh transaksi, budget, dan preferensi akan dihapus.",()=>showConfirm("Yakin menghapus semuanya?","Tahap 2 dari 2: tindakan ini tidak dapat dibatalkan.",()=>{state={transactions:[],budget:0,theme:"light",currency:"IDR",debts:[],futureExpenses:[]};document.documentElement.dataset.theme="light";save();renderAll();notify("Seluruh data telah dihapus.");}),true));
+      $("confirmCancel").addEventListener("click",closeConfirm); $("confirmProceed").addEventListener("click",()=>{const action=pendingConfirm;closeConfirm();if(action)action();});
+      $("debtDate").value=todayISO(); $("futureDate").value=todayISO();
+      $("futureCategory").innerHTML=expenseCategories.map(x=>`<option>${escapeHtml(x)}</option>`).join("");
+      ["debtAmount","futureAmount"].forEach(id=>$(id).addEventListener("input",e=>e.target.value=formatAmountInput(e.target.value)));
+      $("debtForm").addEventListener("submit",e=>{e.preventDefault();const amount=parseAmountInput($("debtAmount").value);if(!amount)return;state.debts.push({id:`d-${Date.now()}`,kind:$("debtKind").value,person:$("debtPerson").value.trim(),amount,date:$("debtDate").value,due:$("debtDue").value,account:$("debtAccount").value,note:$("debtNote").value.trim(),payments:[]});save();e.target.reset();$("debtDate").value=todayISO();renderAll();notify("Catatan utang/piutang disimpan.");});
+      $("futureForm").addEventListener("submit",e=>{e.preventDefault();const amount=parseAmountInput($("futureAmount").value);if(!amount)return;state.futureExpenses.push({id:`f-${Date.now()}`,name:$("futureName").value.trim(),amount,category:$("futureCategory").value,date:$("futureDate").value,account:$("futureAccount").value,note:$("futureNote").value.trim(),status:"pending",transaction_id:""});save();e.target.reset();$("futureDate").value=todayISO();renderAll();notify("Rencana pengeluaran ditambahkan.");});
+      $("debtTab").addEventListener("click",()=>{$("receivableTab").dataset.active="0";renderDebts();});$("receivableTab").addEventListener("click",()=>{$("receivableTab").dataset.active="1";renderDebts();});
+      $("debtList").addEventListener("click",e=>{const pay=e.target.closest(".debt-pay"),del=e.target.closest(".debt-delete");if(del){showConfirm("Hapus catatan?","Riwayat pembayaran pada catatan ini juga akan dihapus.",()=>{state.debts=state.debts.filter(x=>x.id!==del.dataset.id);save();renderAll();});}if(pay){const d=state.debts.find(x=>x.id===pay.dataset.id);if(!d)return;const remaining=d.amount-(d.payments||[]).reduce((n,p)=>n+p.amount,0);const raw=prompt(`Sisa ${money(remaining)}. Masukkan nominal pembayaran:`);if(raw===null)return;const amount=parseAmountInput(raw);if(!amount||amount>remaining){notify("Nominal pembayaran tidak valid.");return;}const account=prompt("Akun pembayaran/penerimaan (Cash, DANA, ShopeePay, BRI, BSI, atau lainnya):",d.account||"Cash");if(!account)return;d.payments=d.payments||[];d.payments.push({amount,account:account.trim(),date:todayISO()});save();renderAll();notify("Pembayaran dicatat.");}});
+      $("futureList").addEventListener("click",e=>{const pay=e.target.closest(".future-pay"),cancel=e.target.closest(".future-cancel");if(cancel){const index=state.futureExpenses.findIndex(v=>v.id===cancel.dataset.id);if(index!==-1){state.futureExpenses.splice(index,1);save();renderAll();notify("Rencana dibatalkan dan dihapus.");}}if(pay){const x=state.futureExpenses.find(v=>v.id===pay.dataset.id);if(!x||x.status!=="pending")return;const account=prompt("Bayar dari akun:",x.account||"Cash");if(!account)return;const tx=normalizeTransaction({transaction_type:"expense",amount:x.amount,category:x.category,transaction_date:todayISO(),note:`${x.name}${x.note?" · "+x.note:""}`,payment_method:account.trim()});if(!tx)return;state.transactions.push(tx);x.status="paid";x.paid_date=todayISO();x.account=account.trim();x.transaction_id=tx.transaction_id;save();renderAll();notify("Pembayaran dicatat sebagai pengeluaran.");}});
+      enhanceAllSelects();
+      load(); document.querySelectorAll("select").forEach(syncCustomSelect);
+      $("transactionDate").value=todayISO(); renderAll();
+      $("fabAdd")?.classList.add("home-visible");
+    })();
+  </script>
+ 
+
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => { navigator.serviceWorker.register('./sw.js').catch(() => {}); });
+}
+</script>
+</body></html>
